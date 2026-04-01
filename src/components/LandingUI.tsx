@@ -28,7 +28,7 @@ export default function LandingUI() {
       className="font-sans selection:bg-blue-300 selection:text-black dark:selection:bg-blue-700 dark:selection:text-white"
       style={{ background: "var(--bg-page)", color: "var(--text-primary)" }}
     >
-      
+
       {/* --- 顶部：极简导航栏 --- */}
       <header className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
         <div className="font-serif text-2xl font-bold tracking-tight flex items-center gap-2">
@@ -59,16 +59,16 @@ export default function LandingUI() {
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
         >
           <div className="overflow-hidden pb-2">
-            <motion.h1 
-              variants={heroTitleVariants} 
+            <motion.h1
+              variants={heroTitleVariants}
               className="font-serif text-5xl md:text-7xl tracking-tight leading-[1.1]"
             >
-              拓竹专属 3MF
+              深度解析 3MF
             </motion.h1>
           </div>
           <div className="overflow-hidden mt-2 pb-2">
-            <motion.h1 
-              variants={heroTitleVariants} 
+            <motion.h1
+              variants={heroTitleVariants}
               className="font-serif text-5xl md:text-7xl tracking-tight leading-[1.1]"
             >
               本地典藏室{" "}
@@ -90,7 +90,7 @@ export default function LandingUI() {
           className="mt-8 text-lg md:text-xl max-w-2xl font-light"
           style={{ color: "var(--text-secondary)" }}
         >
-          极致极速、完全本地托管的拓竹 <code>.3mf</code> 工程画廊系统。毫秒级检索缩略图与模型信息，让您海量的本地 3D 模型库随时保持井然有序。
+          极致极速、完全本地托管的 3MF 模型画廊系统。让您海量的本地 3D 模型库随时保持井然有序。
         </motion.p>
 
         <motion.div
@@ -99,7 +99,7 @@ export default function LandingUI() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="mt-12 flex items-center justify-center gap-4"
         >
-          <Link 
+          <Link
             href="/library"
             className="
               px-8 py-4 rounded-full font-medium transition-all group flex items-center gap-2 shadow-xl
@@ -156,7 +156,7 @@ export default function LandingUI() {
               核心算法告别解压全文件痛点，直接在海量 Zip 的底层流结构中实时抽取 <code>3D/3dmodel.model</code> 参数配置与内部高分辨率贴图。
             </p>
           </motion.div>
-          
+
           {/* 卡片 3 — 亮色 muted */}
           <motion.div
             variants={cardVariants}
@@ -176,7 +176,7 @@ export default function LandingUI() {
           </motion.div>
         </motion.div>
       </section>
-      
+
     </main>
   );
 }
