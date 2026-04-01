@@ -1,0 +1,40 @@
+# 3MF Gallery — Nginx 配置参考
+#
+# 将此配置复制到你的 nginx 配置目录中
+# 修改 root 路径为你的实际路径
+
+server {
+    listen 80;
+    server_name _;
+
+    # nginx root 指向包含 index.html 和模型文件夹的目录
+    root /path/to/your/nginx-root;
+
+    # 默认首页
+    index index.html;
+
+    # 静态页面路由（Next.js 导出的 .html 文件）
+    location / {
+        try_files $uri $uri.html $uri/ =404;
+    }
+
+    # 3MF 模型文件下载 — 强制下载而非浏览器打开
+    location ~* \.3mf$ {
+        add_header Content-Disposition "attachment";
+        types { application/octet-stream 3mf; }
+    }
+
+    # 静态资源缓存优化
+    location /website/_next/static/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    location /website/assets/ {
+        expires 7d;
+        add_header Cache-Control "public";
+    }
+
+    # 404 页面
+    error_page 404 /website/404.html;
+}

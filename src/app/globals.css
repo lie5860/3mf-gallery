@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* Tailwind v4：让 dark: 变体匹配手动切换的 .dark class（而非系统偏好） */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: #F9F7F3;
+  --color-foreground: #111827;
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+/* ── 亮色 / 暗色 CSS 变量 ── */
+:root {
+  --bg-page:        #F9F7F3;
+  --bg-card:        #ffffff;
+  --bg-muted:       #F0EBE1;
+  --bg-input:       rgba(229, 220, 208, 0.30);
+  --border-subtle:  #E5DCD0;
+  --text-primary:   #111827;
+  --text-secondary: #4B5563;
+  --text-muted:     #9CA3AF;
+  --bg-nav:         rgba(249, 247, 243, 0.90);
+  --bg-modal:       #F9F7F3;
+  --bg-sticky-title: #F9F7F3;
+}
+
+.dark {
+  --bg-page:        #0F0F0F;
+  --bg-card:        #1C1C1E;
+  --bg-muted:       #2C2C2E;
+  --bg-input:       rgba(255, 255, 255, 0.06);
+  --border-subtle:  rgba(255, 255, 255, 0.10);
+  --text-primary:   #F5F5F0;
+  --text-secondary: #A1A1AA;
+  --text-muted:     #71717A;
+  --bg-nav:         rgba(15, 15, 15, 0.92);
+  --bg-modal:       #1C1C1E;
+  --bg-sticky-title: #1C1C1E;
+}
+
+/* 下载按钮 — 纯 CSS，无位移 */
+.dl-btn {
+  background: #1C1917;
+  color: #F5F5F0;
+  transition: opacity 0.2s ease;
+}
+.dl-btn:hover {
+  opacity: 0.85;
+}
+.dl-btn:active {
+  opacity: 0.7;
+}
+.dark .dl-btn {
+  background: #2563EB;
+  color: #F0F4FF;
+}
+.dark .dl-btn:hover {
+  opacity: 0.88;
+}
+
+/*
+ * 页面级滚动条不占据布局空间：直接隐藏原生滚动条。
+ * 滚动功能完全保留（鼠标滚轮、触控板、触摸均可正常滚动）。
+ * 弹窗开关时不再有任何布局抖动，因为从始至终没有滚动条占位。
+ */
+html {
+  -ms-overflow-style: none;  /* IE / Edge legacy */
+  scrollbar-width: none;     /* Firefox */
+}
+html::-webkit-scrollbar {
+  display: none;             /* Chrome / Safari / Edge (Chromium) */
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* 显性视觉提示滚动条 (强制 WebKit 展示即使未发生操作交互) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.03); 
+  border-radius: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25); 
+  border-radius: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.45); 
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.20);
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.40);
+}

@@ -1,0 +1,35 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "extract": "NODE_OPTIONS='--max-old-space-size=4096 --expose-gc' tsx scripts/extract.ts",
+    "build": "next build",
+    "serve": "npx serve@latest out",
+    "start": "next start",
+    "lint": "eslint",
+    "deploy": "NEXT_PUBLIC_BASE_PATH=/website-dist sh scripts/deploy.sh"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.7.0",
+    "next": "16.2.1",
+    "node-stream-zip": "^1.15.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/adm-zip": "^0.5.8",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.1",
+    "tailwindcss": "^4",
+    "tsx": "^4.21.0",
+    "typescript": "^5"
+  }
+}
